@@ -1,0 +1,10 @@
+{
+  "name": "planner-90day",
+  "version": "1.0.0",
+  "private": true,
+  "description": "90 day planner with server-side login and WhatsApp notification hook",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

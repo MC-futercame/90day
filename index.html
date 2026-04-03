@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planificateur intelligent sur 90 jours</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <p class="eyebrow">Acces prive</p>
+      <h1>Connexion par numero</h1>
+      <p class="hero-copy login-copy">
+        Entrez un numero autorise pour acceder au planificateur. Chaque numero est lie a un nom.
+      </p>
+
+      <label class="field-label" for="loginNumber">Numero autorise</label>
+      <input id="loginNumber" class="login-input" type="text" inputmode="numeric" placeholder="Exemple : 0718873531">
+
+      <div class="actions">
+        <button id="loginBtn" class="primary-btn" type="button">Se connecter</button>
+      </div>
+
+      <p id="loginStatus" class="status-message" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Studio de planification quotidienne</p>
+      <h1>Creez un plan intelligent de taches sur 90 jours</h1>
+      <p class="hero-copy">
+        Ajoutez une ou plusieurs taches pour chaque jour, avancez sur les 90 jours
+        avec le bouton d'insertion, puis exportez le tout dans un tableau compatible Word.
+      </p>
+    </section>
+
+    <section class="planner-card">
+      <div class="planner-header">
+        <div>
+          <p class="user-badge">Utilisateur connecte : <strong id="currentUserName">-</strong></p>
+          <p class="section-label">Jour actuel</p>
+          <h2 id="currentDayLabel">Jour 1</h2>
+        </div>
+        <div class="progress-wrap">
+          <span id="progressText">1 / 90</span>
+          <div class="progress-bar" aria-hidden="true">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-panel">
+        <label class="field-label" for="taskInput">Taches du jour selectionne</label>
+        <textarea
+          id="taskInput"
+          rows="6"
+          placeholder="Exemple :
+Entrainement du matin
+Lire 10 pages
+Terminer la mise a jour client"
+        ></textarea>
+        <p class="field-help">
+          Ecrivez une tache par ligne. Vous pouvez ajouter une, deux ou plusieurs taches pour chaque jour.
+        </p>
+
+        <div class="actions">
+          <button id="insertBtn" class="primary-btn" type="button">Inserer et passer au jour suivant</button>
+          <button id="saveStayBtn" class="ghost-btn" type="button">Enregistrer ce jour</button>
+          <button id="resetBtn" class="ghost-btn" type="button">Reinitialiser tout</button>
+          <button id="exportBtn" class="secondary-btn" type="button">Exporter le tableau Word</button>
+        </div>
+
+        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="days-card">
+      <div class="days-header">
+        <div>
+          <p class="section-label">Les 90 jours</p>
+          <h2>Vue d'ensemble du planning</h2>
+        </div>
+        <p class="overview-copy">Cliquez sur une carte de jour si vous souhaitez la modifier de nouveau.</p>
+      </div>
+      <div id="daysGrid" class="days-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

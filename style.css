@@ -1,0 +1,363 @@
+:root {
+  --bg: #f3efe7;
+  --paper: rgba(255, 251, 245, 0.92);
+  --paper-strong: #fffdf8;
+  --ink: #1f2933;
+  --muted: #5a6872;
+  --accent: #d96b2b;
+  --accent-deep: #9f3f12;
+  --accent-soft: #f6c9a9;
+  --line: rgba(31, 41, 51, 0.12);
+  --shadow: 0 20px 45px rgba(73, 50, 35, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(217, 107, 43, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(69, 123, 157, 0.16), transparent 28%),
+    linear-gradient(135deg, #efe6d7 0%, #f7f3ea 42%, #ece4d7 100%);
+}
+
+.login-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(24, 31, 38, 0.36);
+  backdrop-filter: blur(14px);
+}
+
+.login-screen.hidden {
+  display: none;
+}
+
+.login-card {
+  width: min(520px, 100%);
+  padding: 32px;
+  border-radius: 28px;
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.login-copy {
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(31, 41, 51, 0.14);
+  background: var(--paper-strong);
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-input:focus {
+  border-color: rgba(217, 107, 43, 0.62);
+  box-shadow: 0 0 0 4px rgba(217, 107, 43, 0.12);
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.hero {
+  padding: 12px 8px 28px;
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+.hero h1,
+.planner-header h2,
+.days-header h2 {
+  margin: 0;
+  line-height: 0.95;
+}
+
+.hero h1 {
+  max-width: 620px;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+}
+
+.hero-copy,
+.overview-copy,
+.field-help,
+#progressText,
+.status-message,
+.day-meta,
+.user-badge {
+  color: var(--muted);
+}
+
+.user-badge {
+  margin: 0 0 18px;
+  font-size: 0.95rem;
+}
+
+.hero-copy {
+  max-width: 700px;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.planner-card,
+.days-card {
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.planner-card {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) 1fr;
+  gap: 28px;
+  padding: 28px;
+}
+
+.planner-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border-right: 1px solid var(--line);
+}
+
+.planner-header h2,
+.days-header h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.progress-wrap {
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 231, 216, 0.92));
+  border: 1px solid rgba(217, 107, 43, 0.16);
+}
+
+.progress-bar {
+  margin-top: 10px;
+  height: 12px;
+  width: 100%;
+  border-radius: 999px;
+  background: rgba(217, 107, 43, 0.14);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 1.11%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), #ef9f62);
+  transition: width 0.25s ease;
+}
+
+.input-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(31, 41, 51, 0.14);
+  background: var(--paper-strong);
+  font: inherit;
+  color: var(--ink);
+  line-height: 1.6;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+textarea:focus {
+  border-color: rgba(217, 107, 43, 0.62);
+  box-shadow: 0 0 0 4px rgba(217, 107, 43, 0.12);
+  transform: translateY(-1px);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), #ea8a51);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(217, 107, 43, 0.24);
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, #2c6f80, #5d94a1);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(44, 111, 128, 0.24);
+}
+
+.ghost-btn {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  border: 1px solid rgba(31, 41, 51, 0.1);
+}
+
+.status-message {
+  min-height: 24px;
+  margin: 18px 0 0;
+  font-size: 0.96rem;
+}
+
+.days-card {
+  margin-top: 28px;
+  padding: 28px;
+}
+
+.days-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.day-card {
+  position: relative;
+  padding: 18px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(249, 245, 239, 0.92));
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  cursor: pointer;
+  min-height: 154px;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.day-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(73, 50, 35, 0.1);
+  border-color: rgba(217, 107, 43, 0.28);
+}
+
+.day-card.active {
+  border-color: rgba(217, 107, 43, 0.72);
+  box-shadow: 0 0 0 3px rgba(217, 107, 43, 0.12);
+}
+
+.day-card.complete::after {
+  content: "";
+  position: absolute;
+  inset: auto -18px -18px auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 107, 43, 0.18), transparent 68%);
+}
+
+.day-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.day-card p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.day-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+@media (max-width: 860px) {
+  .planner-card {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-header {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+  }
+
+  .days-header {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 24px;
+  }
+
+  .planner-card,
+  .days-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
